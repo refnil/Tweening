@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>Tweening</title><script type="text/javascript" src="/home/daniel/.cabal/share/Elm-0.11/elm-runtime.js"></script><script type="text/javascript">Elm.Tweening = Elm.Tweening || {};
+Elm.Tweening.make = function (_elm) {
+   _elm.Tweening = _elm.Tweening || {};
+   if (_elm.Tweening.values)
+   return _elm.Tweening.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _E = _N.Error.make(_elm),
+   _J = _N.JavaScript.make(_elm),
+   $moduleName = "Tweening";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Easing = Elm.Easing.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Prelude = Elm.Prelude.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var _op = {};
+   var tweenWith = F3(function (ox,
+   oy,
+   f) {
+      return A3(Signal.lift2,
+      F2(function (x,y) {
+         return A2(Graphics.Collage.move,
+         {ctor: "_Tuple2"
+         ,_0: x.value
+         ,_1: y.value},
+         f);
+      }),
+      Easing.ease(ox),
+      Easing.ease(oy));
+   });
+   var tween = F4(function (_v0,
+   d,
+   e,
+   f) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var y$ = {_: {}
+                          ,duration: d
+                          ,easing: e
+                          ,from: f.y
+                          ,to: _v0._1};
+                 var x$ = {_: {}
+                          ,duration: d
+                          ,easing: e
+                          ,from: f.x
+                          ,to: _v0._0};
+                 return A3(tweenWith,x$,y$,f);
+              }();}
+         _E.Case($moduleName,
+         "between lines 17 and 21");
+      }();
+   });
+   _elm.Tweening.values = {_op: _op
+                          ,tweenWith: tweenWith
+                          ,tween: tween};
+   return _elm.Tweening.values;
+};Elm.Easing = Elm.Easing || {};
+Elm.Easing.make = function (_elm) {
+   _elm.Easing = _elm.Easing || {};
+   if (_elm.Easing.values)
+   return _elm.Easing.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _E = _N.Error.make(_elm),
+   _J = _N.JavaScript.make(_elm),
+   $moduleName = "Easing";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Prelude = Elm.Prelude.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var _op = {};
+   var isFirstHalf = F2(function (o,
+   t) {
+      return _U.cmp(t,
+      o.duration / 2) < 0;
+   });
+   var isPlaying = F2(function (o,
+   t) {
+      return _U.cmp(t,
+      o.duration) < 0;
+   });
+   var ease = function (o) {
+      return function () {
+         var e = F2(function (_v0,
+         _v1) {
+            return function () {
+               return function () {
+                  switch (_v0.ctor)
+                  {case "_Tuple2":
+                     switch (_v0._0.ctor)
+                       {case "_Tuple2":
+                          return function () {
+                               var p = A2(isPlaying,
+                               _U.remove("easing",o),
+                               _v0._0._0 - _v0._1);
+                               var n = A3(o.easing,
+                               _U.remove("easing",o),
+                               o.to - o.from,
+                               _v0._0._0 - _v0._1);
+                               return {_: {}
+                                      ,playing: p
+                                      ,value: p ? n : o.to};
+                            }();}
+                       break;}
+                  _E.Case($moduleName,
+                  "between lines 197 and 199");
+               }();
+            }();
+         });
+         var b = Signal.lift(Basics.fst)(Time.timestamp(Signal.constant({ctor: "_Tuple0"})));
+         return A3(Signal.foldp,
+         e,
+         {_: {}
+         ,playing: true
+         ,value: o.from},
+         A3(Signal.lift2,
+         F2(function (v0,v1) {
+            return {ctor: "_Tuple2"
+                   ,_0: v0
+                   ,_1: v1};
+         }),
+         Time.timestamp(Time.fps(60)),
+         b));
+      }();
+   };
+   var easeInOutCirc = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / (o.duration / 2);
+         var t2 = t$ - 2;
+         return A2(isFirstHalf,
+         o,
+         t) ? (0 - c) / 2 * (Basics.sqrt(1 - t$ * t$) - 1) + o.from : c / 2 * (Basics.sqrt(1 - t2 * t2) + 1) + o.from;
+      }();
+   });
+   var easeOutCirc = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / o.duration - 1;
+         return c * Basics.sqrt(1 - t$ * t$) + o.from;
+      }();
+   });
+   var easeInCirc = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / o.duration;
+         return (0 - c) * (Basics.sqrt(1 - t * t) - 1) + o.from;
+      }();
+   });
+   var easeInOutExpo = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / (o.duration / 2);
+         var t2 = t$ - 1;
+         return A2(isFirstHalf,
+         o,
+         t) ? c / 2 * Math.pow(2,
+         10 * (t$ - 1)) + o.from : c / 2 * (0 - Math.pow(2,
+         -10 * t2) + 2) + o.from;
+      }();
+   });
+   var easeOutExpo = F3(function (o,
+   c,
+   t) {
+      return c * (0 - Math.pow(2,
+      -10 * t / o.duration) + 1) + o.from;
+   });
+   var easeInExpo = F3(function (o,
+   c,
+   t) {
+      return c * Math.pow(2,
+      10 * (t / o.duration - 1)) + o.from;
+   });
+   var easeInOutSine = F3(function (o,
+   c,
+   t) {
+      return (0 - c) / 2 * (Basics.cos(Basics.pi * t / o.duration) - 1) + o.from;
+   });
+   var easeOutSine = F3(function (o,
+   c,
+   t) {
+      return c * Basics.sin(t / o.duration * (Basics.pi / 2)) + o.from;
+   });
+   var easeInSine = F3(function (o,
+   c,
+   t) {
+      return (0 - c) * Basics.cos(t / o.duration * (Basics.pi / 2)) + c + o.from;
+   });
+   var easeInOutQuart = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / (o.duration / 2);
+         var t2 = t$ - 2;
+         return A2(isFirstHalf,
+         o,
+         t) ? c / 2 * t$ * t$ * t$ * t$ + o.from : (0 - c) / 2 * (t2 * t2 * t2 * t2 - 2) + o.from;
+      }();
+   });
+   var easeOutQuart = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / o.duration - 1;
+         return (0 - c) * (t$ * t$ * t$ * t$ - 1) + o.from;
+      }();
+   });
+   var easeInQuart = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / o.duration;
+         return c * t$ * t$ * t$ * t$ + o.from;
+      }();
+   });
+   var easeInOutCubic = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / (o.duration / 2);
+         var t2 = t$ - 2;
+         return A2(isFirstHalf,
+         o,
+         t) ? c / 2 * t$ * t$ * t$ + o.from : c / 2 * (t2 * t2 * t2 + 2) + o.from;
+      }();
+   });
+   var easeOutCubic = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / o.duration - 1;
+         return c * (t$ * t$ * t$ + 1) + o.from;
+      }();
+   });
+   var easeInCubic = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / o.duration;
+         return c * t$ * t$ * t$ + o.from;
+      }();
+   });
+   var easeInOutQuad = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / (o.duration / 2);
+         var t2 = t$ - 1;
+         return A2(isFirstHalf,
+         o,
+         t) ? c / 2 * t$ * t$ + o.from : (0 - c) / 2 * (t2 * (t2 - 2) - 1) + o.from;
+      }();
+   });
+   var easeOutQuad = F3(function (o,
+   c,
+   t) {
+      return function () {
+         var t$ = t / o.duration;
+         return (0 - c) * t$ * (t$ - 2) + o.from;
+      }();
+   });
+   var easeInQuad = F3(function (o,
+   c,
+   t) {
+      return c * Math.pow(t / o.duration,
+      2) + o.from;
+   });
+   var linear = F3(function (o,
+   c,
+   t) {
+      return c * t / o.duration + o.from;
+   });
+   var EasingState = F2(function (a,
+   b) {
+      return {_: {}
+             ,playing: b
+             ,value: a};
+   });
+   var PlayState = function (a) {
+      return {_: {},playing: a};
+   };
+   var EasingOptions = F3(function (a,
+   b,
+   c) {
+      return {_: {}
+             ,duration: c
+             ,from: a
+             ,to: b};
+   });
+   var EaseOptions = F4(function (a,
+   b,
+   c,
+   d) {
+      return {_: {}
+             ,duration: c
+             ,easing: d
+             ,from: a
+             ,to: b};
+   });
+   _elm.Easing.values = {_op: _op
+                        ,linear: linear
+                        ,easeInQuad: easeInQuad
+                        ,easeOutQuad: easeOutQuad
+                        ,easeInOutQuad: easeInOutQuad
+                        ,easeInCubic: easeInCubic
+                        ,easeOutCubic: easeOutCubic
+                        ,easeInOutCubic: easeInOutCubic
+                        ,easeInQuart: easeInQuart
+                        ,easeOutQuart: easeOutQuart
+                        ,easeInOutQuart: easeInOutQuart
+                        ,easeInSine: easeInSine
+                        ,easeOutSine: easeOutSine
+                        ,easeInOutSine: easeInOutSine
+                        ,easeInExpo: easeInExpo
+                        ,easeOutExpo: easeOutExpo
+                        ,easeInOutExpo: easeInOutExpo
+                        ,easeInCirc: easeInCirc
+                        ,easeOutCirc: easeOutCirc
+                        ,easeInOutCirc: easeInOutCirc
+                        ,isPlaying: isPlaying
+                        ,isFirstHalf: isFirstHalf
+                        ,ease: ease
+                        ,EaseOptions: EaseOptions
+                        ,EasingOptions: EasingOptions
+                        ,PlayState: PlayState
+                        ,EasingState: EasingState};
+   return _elm.Easing.values;
+};</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Tweening)</script><noscript></noscript></body></html>
