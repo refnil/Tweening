@@ -1,9 +1,9 @@
-{ "version": "0.1.6"
+{ "version": "0.1.8"
 , "summary": "Tweening Forms"
 , "description": "Library for tweening (animating) Forms."
 , "license": "BSD3"
-, "repository": "https://github.com/Dandandan/Tweening.git"
-, "exposed-modules": [ "Tweening" ]
+, "repository": "https://github.com/Refnil/Tweening.git"
+, "exposed-modules": [ "Tweening" ,"Easing"]
 , "elm-version": "0.11"
 , "dependencies":{ }
 }
