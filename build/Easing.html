@@ -1,82 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Tweening</title><script type="text/javascript" src="/usr/local/share/elm/compiler/elm-runtime.js"></script><script type="text/javascript">Elm.Tweening = Elm.Tweening || {};
-Elm.Tweening.make = function (_elm) {
-   "use strict";
-   _elm.Tweening = _elm.Tweening || {};
-   if (_elm.Tweening.values)
-   return _elm.Tweening.values;
-   var _op = {},
-   _N = Elm.Native,
-   _U = _N.Utils.make(_elm),
-   _L = _N.List.make(_elm),
-   _A = _N.Array.make(_elm),
-   _E = _N.Error.make(_elm),
-   $moduleName = "Tweening",
-   $Easing = Elm.Easing.make(_elm),
-   $Graphics$Collage = Elm.Graphics.Collage.make(_elm),
-   $Signal = Elm.Signal.make(_elm),
-   $Time = Elm.Time.make(_elm);
-   var tweenTransform = F6(function (from,
-   to,
-   d,
-   t,
-   e,
-   f) {
-      return A2($Signal._op["<~"],
-      function (x) {
-         return A2(t,x.value,f);
-      },
-      $Easing.ease({_: {}
-                   ,duration: d
-                   ,easing: e
-                   ,from: from
-                   ,to: to}));
-   });
-   var tweenMove = F3(function (ox,
-   oy,
-   f) {
-      return A2($Signal._op["~"],
-      A2($Signal._op["<~"],
-      F2(function (x,y) {
-         return A2($Graphics$Collage.move,
-         {ctor: "_Tuple2"
-         ,_0: x.value
-         ,_1: y.value},
-         f);
-      }),
-      $Easing.ease(ox)),
-      $Easing.ease(oy));
-   });
-   var tween = F4(function (_v0,
-   d,
-   e,
-   f) {
-      return function () {
-         switch (_v0.ctor)
-         {case "_Tuple2":
-            return function () {
-                 var y$ = {_: {}
-                          ,duration: d
-                          ,easing: e
-                          ,from: f.y
-                          ,to: _v0._1};
-                 var x$ = {_: {}
-                          ,duration: d
-                          ,easing: e
-                          ,from: f.x
-                          ,to: _v0._0};
-                 return A3(tweenMove,x$,y$,f);
-              }();}
-         _E.Case($moduleName,
-         "between lines 40 and 44");
-      }();
-   });
-   _elm.Tweening.values = {_op: _op
-                          ,tweenMove: tweenMove
-                          ,tween: tween
-                          ,tweenTransform: tweenTransform};
-   return _elm.Tweening.values;
-};Elm.Easing = Elm.Easing || {};
+<html><head><meta charset="UTF-8"><title>Easing</title><script type="text/javascript" src="/usr/local/share/elm/compiler/elm-runtime.js"></script><script type="text/javascript">Elm.Easing = Elm.Easing || {};
 Elm.Easing.make = function (_elm) {
    "use strict";
    _elm.Easing = _elm.Easing || {};
@@ -405,4 +328,4 @@ Elm.Easing.make = function (_elm) {
                         ,ease: ease
                         ,easeWithFps: easeWithFps};
    return _elm.Easing.values;
-};</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Tweening)</script><noscript></noscript></body></html>
+};</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Easing)</script><noscript></noscript></body></html>

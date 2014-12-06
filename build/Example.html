@@ -1,130 +1,108 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Example</title><script type="text/javascript" src="/home/daniel/.cabal/share/Elm-0.11/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
+<html><head><meta charset="UTF-8"><title>Example</title><script type="text/javascript" src="/usr/local/share/elm/compiler/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
 Elm.Main.make = function (_elm) {
+   "use strict";
    _elm.Main = _elm.Main || {};
    if (_elm.Main.values)
    return _elm.Main.values;
-   var _N = Elm.Native,
+   var _op = {},
+   _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   _J = _N.JavaScript.make(_elm),
-   $moduleName = "Main";
-   var Basics = Elm.Basics.make(_elm);
-   var Color = Elm.Color.make(_elm);
-   var Easing = Elm.Easing.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Element = Elm.Graphics.Element.make(_elm);
-   var List = Elm.List.make(_elm);
-   var Maybe = Elm.Maybe.make(_elm);
-   var Native = Native || {};
-   Native.Ports = Elm.Native.Ports.make(_elm);
-   var Prelude = Elm.Prelude.make(_elm);
-   var Signal = Elm.Signal.make(_elm);
-   var String = Elm.String.make(_elm);
-   var Text = Elm.Text.make(_elm);
-   var Time = Elm.Time.make(_elm);
-   var Tweening = Elm.Tweening.make(_elm);
-   var _op = {};
-   var main = Signal.lift(A2(Graphics.Collage.collage,
+   $moduleName = "Main",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Easing = Elm.Easing.make(_elm),
+   $Graphics$Collage = Elm.Graphics.Collage.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Text = Elm.Text.make(_elm),
+   $Tweening = Elm.Tweening.make(_elm);
+   var main = $Signal.lift(A2($Graphics$Collage.collage,
    500,
-   500))(Signal.combine(_J.toList([A3(Tweening.tween,
-                                  {ctor: "_Tuple2"
-                                  ,_0: 100
-                                  ,_1: 100},
-                                  2000,
-                                  Easing.easeInOutQuad)(A2(Graphics.Collage.filled,
-                                  Color.blue,
-                                  Graphics.Collage.circle(100)))
-                                  ,A3(Tweening.tween,
-                                  {ctor: "_Tuple2",_0: 0,_1: 200},
-                                  2000,
-                                  Easing.easeInOutQuart)(A2(Graphics.Collage.filled,
-                                  Color.red,
-                                  A2(Graphics.Collage.rect,
-                                  40,
-                                  70)))
-                                  ,A3(Tweening.tween,
-                                  {ctor: "_Tuple2"
-                                  ,_0: 200
-                                  ,_1: 200},
-                                  1000,
-                                  Easing.easeInOutCubic)(Graphics.Collage.toForm(Text.plainText("aaa")))
-                                  ,A5(Tweening.tweenTransform,
-                                  0.0,
-                                  1.0,
-                                  1000,
-                                  Graphics.Collage.alpha,
-                                  Easing.linear)(A2(Graphics.Collage.filled,
-                                  Color.orange,
-                                  A2(Graphics.Collage.rect,
-                                  40,
-                                  70)))])));
+   500))($Signal.combine(_L.fromArray([A3($Tweening.tween,
+                                      {ctor: "_Tuple2"
+                                      ,_0: 100
+                                      ,_1: 100},
+                                      2000,
+                                      $Easing.easeInOutQuad)(A2($Graphics$Collage.filled,
+                                      $Color.blue,
+                                      $Graphics$Collage.circle(100)))
+                                      ,A3($Tweening.tween,
+                                      {ctor: "_Tuple2",_0: 0,_1: 200},
+                                      2000,
+                                      $Easing.easeInOutQuart)(A2($Graphics$Collage.filled,
+                                      $Color.red,
+                                      A2($Graphics$Collage.rect,
+                                      40,
+                                      70)))
+                                      ,A3($Tweening.tween,
+                                      {ctor: "_Tuple2"
+                                      ,_0: 200
+                                      ,_1: 200},
+                                      1000,
+                                      $Easing.easeInOutCubic)($Graphics$Collage.toForm($Text.plainText("aaa")))
+                                      ,A5($Tweening.tweenTransform,
+                                      0.0,
+                                      1.0,
+                                      1000,
+                                      $Graphics$Collage.alpha,
+                                      $Easing.linear)(A2($Graphics$Collage.filled,
+                                      $Color.orange,
+                                      A2($Graphics$Collage.rect,
+                                      40,
+                                      70)))])));
    _elm.Main.values = {_op: _op
                       ,main: main};
    return _elm.Main.values;
 };Elm.Tweening = Elm.Tweening || {};
 Elm.Tweening.make = function (_elm) {
+   "use strict";
    _elm.Tweening = _elm.Tweening || {};
    if (_elm.Tweening.values)
    return _elm.Tweening.values;
-   var _N = Elm.Native,
+   var _op = {},
+   _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   _J = _N.JavaScript.make(_elm),
-   $moduleName = "Tweening";
-   var Basics = Elm.Basics.make(_elm);
-   var Color = Elm.Color.make(_elm);
-   var Easing = Elm.Easing.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Element = Elm.Graphics.Element.make(_elm);
-   var List = Elm.List.make(_elm);
-   var Maybe = Elm.Maybe.make(_elm);
-   var Native = Native || {};
-   Native.Ports = Elm.Native.Ports.make(_elm);
-   var Prelude = Elm.Prelude.make(_elm);
-   var Signal = Elm.Signal.make(_elm);
-   var String = Elm.String.make(_elm);
-   var Text = Elm.Text.make(_elm);
-   var Time = Elm.Time.make(_elm);
-   var _op = {};
+   $moduleName = "Tweening",
+   $Easing = Elm.Easing.make(_elm),
+   $Graphics$Collage = Elm.Graphics.Collage.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Time = Elm.Time.make(_elm);
    var tweenTransform = F6(function (from,
    to,
    d,
    t,
    e,
    f) {
-      return function () {
-         var x$ = {_: {}
-                  ,duration: d
-                  ,easing: e
-                  ,from: from
-                  ,to: to};
-         return A2(Signal.lift,
-         function (x) {
-            return A2(t,x.value,f);
-         },
-         Easing.ease(x$));
-      }();
+      return A2($Signal._op["<~"],
+      function (x) {
+         return A2(t,x.value,f);
+      },
+      $Easing.ease({_: {}
+                   ,duration: d
+                   ,easing: e
+                   ,from: from
+                   ,to: to}));
    });
    var tweenMove = F3(function (ox,
    oy,
    f) {
-      return A3(Signal.lift2,
+      return A2($Signal._op["~"],
+      A2($Signal._op["<~"],
       F2(function (x,y) {
-         return A2(Graphics.Collage.move,
+         return A2($Graphics$Collage.move,
          {ctor: "_Tuple2"
          ,_0: x.value
          ,_1: y.value},
          f);
       }),
-      Easing.ease(ox),
-      Easing.ease(oy));
+      $Easing.ease(ox)),
+      $Easing.ease(oy));
    });
    var tween = F4(function (_v0,
    d,
@@ -147,7 +125,7 @@ Elm.Tweening.make = function (_elm) {
                  return A3(tweenMove,x$,y$,f);
               }();}
          _E.Case($moduleName,
-         "between lines 26 and 30");
+         "between lines 40 and 44");
       }();
    });
    _elm.Tweening.values = {_op: _op
@@ -157,31 +135,21 @@ Elm.Tweening.make = function (_elm) {
    return _elm.Tweening.values;
 };Elm.Easing = Elm.Easing || {};
 Elm.Easing.make = function (_elm) {
+   "use strict";
    _elm.Easing = _elm.Easing || {};
    if (_elm.Easing.values)
    return _elm.Easing.values;
-   var _N = Elm.Native,
+   var _op = {},
+   _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   _J = _N.JavaScript.make(_elm),
-   $moduleName = "Easing";
-   var Basics = Elm.Basics.make(_elm);
-   var Color = Elm.Color.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Element = Elm.Graphics.Element.make(_elm);
-   var List = Elm.List.make(_elm);
-   var Maybe = Elm.Maybe.make(_elm);
-   var Native = Native || {};
-   Native.Ports = Elm.Native.Ports.make(_elm);
-   var Prelude = Elm.Prelude.make(_elm);
-   var Signal = Elm.Signal.make(_elm);
-   var String = Elm.String.make(_elm);
-   var Text = Elm.Text.make(_elm);
-   var Time = Elm.Time.make(_elm);
-   var _op = {};
+   $moduleName = "Easing",
+   $Basics = Elm.Basics.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Time = Elm.Time.make(_elm);
    var isFirstHalf = F2(function (o,
    t) {
       return _U.cmp(t,
@@ -223,19 +191,19 @@ Elm.Easing.make = function (_elm) {
                }();
             }();
          });
-         var b = Signal.lift(Basics.fst)(Time.timestamp(Signal.constant({ctor: "_Tuple0"})));
-         return A3(Signal.foldp,
+         var b = $Signal.lift($Basics.fst)($Time.timestamp($Signal.constant({ctor: "_Tuple0"})));
+         return A3($Signal.foldp,
          e,
          {_: {}
          ,playing: true
          ,value: o.from},
-         A3(Signal.lift2,
+         A3($Signal.lift2,
          F2(function (v0,v1) {
             return {ctor: "_Tuple2"
                    ,_0: v0
                    ,_1: v1};
          }),
-         Time.timestamp(Time.fps(f)),
+         $Time.timestamp($Time.fps(f)),
          b));
       }();
    });
@@ -246,9 +214,11 @@ Elm.Easing.make = function (_elm) {
       return function () {
          var c = o.to - o.from;
          var t$ = t / o.duration - 1;
-         return _U.eq(A2(Basics.mod,i,2),
+         return _U.eq(A2($Basics._op["%"],
+         i,
+         2),
          0) ? (0 - c) * (t$ * t$ * t$ * t$ - 1) + o.from : c * (Math.pow(t$,
-         Basics.toFloat(i)) + 1) + o.from;
+         $Basics.toFloat(i)) + 1) + o.from;
       }();
    });
    var easeInPolonomial = F3(function (i,
@@ -257,7 +227,7 @@ Elm.Easing.make = function (_elm) {
       return function () {
          var c = o.to - o.from;
          return c * Math.pow(t / o.duration,
-         Basics.toFloat(i)) + o.from;
+         $Basics.toFloat(i)) + o.from;
       }();
    });
    var easeInOutPolonomial = F3(function (i,
@@ -317,7 +287,7 @@ Elm.Easing.make = function (_elm) {
          var t2 = t$ - 2;
          return A2(isFirstHalf,
          o,
-         t) ? (0 - c) / 2 * (Basics.sqrt(1 - t$ * t$) - 1) + o.from : c / 2 * (Basics.sqrt(1 - t2 * t2) + 1) + o.from;
+         t) ? (0 - c) / 2 * ($Basics.sqrt(1 - t$ * t$) - 1) + o.from : c / 2 * ($Basics.sqrt(1 - t2 * t2) + 1) + o.from;
       }();
    });
    var easeOutCirc = F2(function (o,
@@ -325,7 +295,7 @@ Elm.Easing.make = function (_elm) {
       return function () {
          var c = o.to - o.from;
          var t$ = t / o.duration - 1;
-         return c * Basics.sqrt(1 - t$ * t$) + o.from;
+         return c * $Basics.sqrt(1 - t$ * t$) + o.from;
       }();
    });
    var easeInCirc = F2(function (o,
@@ -333,7 +303,7 @@ Elm.Easing.make = function (_elm) {
       return function () {
          var c = o.to - o.from;
          var t$ = t / o.duration;
-         return (0 - c) * (Basics.sqrt(1 - t$ * t$) - 1) + o.from;
+         return (0 - c) * ($Basics.sqrt(1 - t$ * t$) - 1) + o.from;
       }();
    });
    var easeInOutExpo = F2(function (o,
@@ -369,21 +339,21 @@ Elm.Easing.make = function (_elm) {
    t) {
       return function () {
          var c = o.to - o.from;
-         return (0 - c) / 2 * (Basics.cos(Basics.pi * t / o.duration) - 1) + o.from;
+         return (0 - c) / 2 * ($Basics.cos($Basics.pi * t / o.duration) - 1) + o.from;
       }();
    });
    var easeOutSine = F2(function (o,
    t) {
       return function () {
          var c = o.to - o.from;
-         return c * Basics.sin(t / o.duration * (Basics.pi / 2)) + o.from;
+         return c * $Basics.sin(t / o.duration * ($Basics.pi / 2)) + o.from;
       }();
    });
    var easeInSine = F2(function (o,
    t) {
       return function () {
          var c = o.to - o.from;
-         return (0 - c) * Basics.cos(t / o.duration * (Basics.pi / 2)) + c + o.from;
+         return (0 - c) * $Basics.cos(t / o.duration * ($Basics.pi / 2)) + c + o.from;
       }();
    });
    var easeInOutQuint = easeInOutPolonomial(5);
@@ -411,11 +381,11 @@ Elm.Easing.make = function (_elm) {
                         {case "_Tuple2":
                            return _U.cmp(fs._1._0._0,
                              t) < 1 ? A3(keyFrames,
-                             {ctor: "::"
-                             ,_0: {ctor: "_Tuple2"
-                                  ,_0: fs._1._0._0
-                                  ,_1: fs._1._0._1}
-                             ,_1: fs._1._1},
+                             A2($List._op["::"],
+                             {ctor: "_Tuple2"
+                             ,_0: fs._1._0._0
+                             ,_1: fs._1._0._1},
+                             fs._1._1),
                              o,
                              t) : (o.to - o.from) * fs._0._1 + o.from;}
                         break;
@@ -454,6 +424,9 @@ Elm.Easing.make = function (_elm) {
              ,to: b};
    });
    _elm.Easing.values = {_op: _op
+                        ,EaseOptions: EaseOptions
+                        ,EasingOptions: EasingOptions
+                        ,EasingState: EasingState
                         ,linear: linear
                         ,keyFrames: keyFrames
                         ,easeInQuad: easeInQuad
@@ -487,9 +460,6 @@ Elm.Easing.make = function (_elm) {
                         ,isPlaying: isPlaying
                         ,isFirstHalf: isFirstHalf
                         ,ease: ease
-                        ,easeWithFps: easeWithFps
-                        ,EaseOptions: EaseOptions
-                        ,EasingOptions: EasingOptions
-                        ,EasingState: EasingState};
+                        ,easeWithFps: easeWithFps};
    return _elm.Easing.values;
 };</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>

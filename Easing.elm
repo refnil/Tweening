@@ -231,7 +231,7 @@ easeOutPolonomial i o t =
         t' = t / o.duration - 1
         c = o.to - o.from
     in
-        if i `mod` 2 == 0 then
+        if i % 2 == 0 then
             -c * (t' * t' * t' * t' - 1) + o.from
         else
             c * (t' ^  (toFloat i) + 1) + o.from
